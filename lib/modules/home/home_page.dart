@@ -11,17 +11,13 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final controller = HomeController();
-  final pages = [
-    Container(
-      color: Colors.red,
-    ),
-    Container(
-      color: Colors.blue,
-    )
-  ];
   @override
   Widget build(BuildContext context) {
+    final controller = HomeController();
+    final pages = [
+      Container(color: Colors.blue),
+      Container(color: Colors.green),
+    ];
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(152),
@@ -30,20 +26,21 @@ class _HomePageState extends State<HomePage> {
           color: AppColors.primary,
           child: Center(
             child: ListTile(
-              title: Text(
-                "Olá, Leonardo",
-                style: TextStyles.titleRegular,
-              ),
-              subtitle: Text.rich(
+              title: Text.rich(
                 TextSpan(
-                    text: "Olá, ",
-                    style: TextStyles.titleRegular,
-                    children: [
-                      TextSpan(
-                        text: "Leonardo",
-                        style: TextStyles.titleBoldBackground,
-                      )
-                    ]),
+                  text: 'Hello, ',
+                  style: TextStyles.titleRegular,
+                  children: [
+                    TextSpan(
+                      text: 'Leonardo',
+                      style: TextStyles.titleBoldBackground,
+                    ),
+                  ],
+                ),
+              ),
+              subtitle: Text(
+                'Keep your accounts up to date',
+                style: TextStyles.captionShape,
               ),
               trailing: Container(
                 height: 48,
@@ -65,18 +62,13 @@ class _HomePageState extends State<HomePage> {
           children: [
             IconButton(
               onPressed: () {
-                setState(() {
-                  controller.setPage(0);
-                });
+                setState(() => controller.setPage(0));
               },
-              icon: Icon(
-                Icons.home,
-                color: AppColors.primary,
-              ),
+              icon: Icon(Icons.home, color: AppColors.primary),
             ),
             GestureDetector(
               onTap: () {
-                Navigator.pushNamed(context, "/barcode_scanner");
+                Navigator.pushNamed(context, '/barcode_scanner');
               },
               child: Container(
                 width: 56,
@@ -93,14 +85,9 @@ class _HomePageState extends State<HomePage> {
             ),
             IconButton(
               onPressed: () {
-                setState(() {
-                  controller.setPage(1);
-                });
+                setState(() => controller.setPage(1));
               },
-              icon: Icon(
-                Icons.description_outlined,
-                color: AppColors.body,
-              ),
+              icon: Icon(Icons.description_outlined, color: AppColors.body),
             ),
           ],
         ),

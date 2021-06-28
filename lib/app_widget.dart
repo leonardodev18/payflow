@@ -14,23 +14,26 @@ class AppWidget extends StatelessWidget {
       DeviceOrientation.portraitDown,
       DeviceOrientation.portraitUp,
     ]);
+    SystemChrome.setSystemUIOverlayStyle(
+      SystemUiOverlayStyle(statusBarColor: AppColors.primary),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Play Flow',
+      title: 'PayFlow',
       theme: ThemeData(
         primarySwatch: Colors.orange,
         primaryColor: AppColors.primary,
       ),
-      initialRoute: "/splash",
+      initialRoute: '/splash',
       routes: {
-        "/splash": (context) => SplashPage(),
-        "/home": (context) => HomePage(),
-        "/login": (context) => LoginPage(),
-        "/barcode_scanner": (context) => BarcodeScannerPage(),
-        "/insert_boleto": (context) => InsertBoletoPage(),
+        '/splash': (context) => SplashPage(),
+        '/home': (context) => HomePage(),
+        '/login': (context) => LoginPage(),
+        '/barcode_scanner': (context) => BarcodeScannerPage(),
+        '/insert_boleto': (context) => InsertBoletoPage(),
       },
     );
   }
